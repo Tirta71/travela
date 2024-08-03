@@ -22,7 +22,8 @@ class PackageBooking extends Model
         'sub_total',
         'insurance',
         'tax',
-        'is_paid'
+        'is_paid',
+        'package_bank_id'
     ];
 
     protected $casts = [
@@ -35,10 +36,10 @@ class PackageBooking extends Model
     }
 
     public function tour(){
-        return $this->belongsTo(PackageTour::class);
+        return $this->belongsTo(PackageTour::class, 'package_tour_id');
     }
 
     public function bank(){
-        return $this->belongsTo(PackageBank::class);
+        return $this->belongsTo(PackageBank::class, 'package_bank_id');
     }
 }
