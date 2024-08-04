@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePackageBookingCheckoutRequest;
 use App\Http\Requests\StorePackageBookingRequest;
 use App\Http\Requests\UpdatePackageBookingRequest;
+use App\Models\Category;
 use App\Models\PackageBank;
 use App\Models\PackageBooking;
 use App\Models\PackageTour;
@@ -17,7 +18,8 @@ class FrontController extends Controller
 {
     public function index(){
         $packageTour = PackageTour::orderByDesc('id')->take(3)->get();
-        return view('front.index', compact('packageTour'));
+        $categories = Category::orderByDesc('id')->get();
+        return view('front.index', compact('packageTour', 'categories'));
     }
 
     public function details(PackageTour $packageTour){
@@ -119,6 +121,11 @@ class FrontController extends Controller
 
     public function book_finish(){
         return view('front.book_finish');
+    }
+
+
+    public function category(Category $category){
+        return view('front.category', compact('category'));
     }
 
     

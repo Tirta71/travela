@@ -16,7 +16,7 @@ class Category extends Model
         'slug'
     ];
 
-    public function bookings(){
+    public function tours(){
         return $this->hasMany(PackageTour::class);
     }
 
