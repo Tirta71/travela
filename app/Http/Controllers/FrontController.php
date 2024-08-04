@@ -118,7 +118,7 @@ class FrontController extends Controller
     }
 
     public function book_finish(){
-        return view('front.book_finsih');
+        return view('front.book_finish');
     }
 
     

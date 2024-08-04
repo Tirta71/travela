@@ -25,6 +25,11 @@ class User extends Authenticatable
         'phone_number'
     ];
 
+    public function bookings()
+    {
+        return $this->hasMany(PackageBooking::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
